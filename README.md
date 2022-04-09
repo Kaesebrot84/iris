@@ -1,3 +1,5 @@
+[![Rust](https://github.com/Kaesebrot84/iris/actions/workflows/Build.yml/badge.svg)](https://github.com/Kaesebrot84/iris/actions/workflows/Build.yml)
+
 ## Iris
 
 A command line tool that creates color palettes from images.
