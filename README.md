@@ -2,13 +2,13 @@
 
 ## Iris
 
-A command line tool that creates color palettes from images.
+A command line tool that creates color palettes from images using the [median cut algorithm](https://en.wikipedia.org/wiki/Median_cut).
 
 ## Usage
 
 ```sh
 iris 0.1.0
-A command line tool that creates color palettes from images.
+A command line tool that creates color palettes from images using the median cut algorithm.
 
 USAGE:
     iris [OPTIONS] --file-name <FILE_NAME> [OUTPUT_FORMAT]
@@ -20,7 +20,7 @@ ARGS:
 OPTIONS:
     -f, --file-name <FILE_NAME>          Target image file name
     -h, --help                           Print help information
-    -i, --iterations <ITERATIONS>        Number iterations [default: 1]
+    -i, --iterations <ITERATIONS>        Number of iterations [default: 1]
     -o, --out-filename <OUT_FILENAME>    File path the file should be written to [default: palette]
     -V, --version                        Print version information
 
@@ -53,7 +53,7 @@ Finished generating palette in 1550 ms.
 
 ## About the project
 
-I created this project to understand Rust a little better. Therefore, there is certainly a need for optimization.
+I created this project for learning purposes.
 
 ## Future
 

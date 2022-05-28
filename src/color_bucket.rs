@@ -52,7 +52,7 @@ impl ColorBucket {
                 bucket.recurse(iter_count - 1, result);
             }
             if let Some(mut bucket) = new_buckets.1 {
-                bucket.recurse(iter_count - 1, result)
+                bucket.recurse(iter_count - 1, result);
             }
         }
     }
@@ -89,7 +89,7 @@ impl ColorBucket {
             if color[highest_range_channel] > median {
                 above_median.push(*color);
             } else {
-                below_median.push(*color)
+                below_median.push(*color);
             }
         }
 

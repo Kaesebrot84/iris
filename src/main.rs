@@ -14,7 +14,7 @@ pub mod color_bucket;
 pub mod export;
 pub mod utils;
 
-/// A command line tool that creates color palettes from images.
+/// A command line tool that creates color palettes from images using the median cut algorithm.
 #[derive(Parser, Debug)]
 #[clap(author, version, about, long_about = None)]
 struct Args {
@@ -22,7 +22,7 @@ struct Args {
     #[clap(short, long)]
     file_name: String,
 
-    /// Number iterations.
+    /// Number of iterations.
     #[clap(short, long, default_value_t = 1)]
     iterations: u8,
 
