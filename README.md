@@ -7,11 +7,11 @@ A command line tool that creates color palettes from images using the [median cu
 ## Usage
 
 ```sh
-iris 0.1.0
+cliris 0.1.0
 A command line tool that creates color palettes from images using the median cut algorithm.
 
 USAGE:
-    iris [OPTIONS] --file-name <FILE_NAME> [OUTPUT_FORMAT]
+    cliris [OPTIONS] --file-name <FILE_NAME> [OUTPUT_FORMAT]
 
 ARGS:
     <OUTPUT_FORMAT>    Desired data file format to be written [default: none] [possible values:
@@ -26,10 +26,17 @@ OPTIONS:
 
 ```
 
+### Installation
+
+```bash
+cargo install cliris
+```
+
+
 ### Example
 
 ```sh
-iris -f Lenna.png -i 3 html
+cliris -f Lenna.png -i 3 html
 
 Image: (512, 512) - Rgb8
 Finished reading 262144 pixel values in 71 ms.
@@ -51,11 +58,3 @@ Finished generating palette in 1550 ms.
     <img src="example_output.png" alt="example_output_image" width="400">
 </p>
 
-## About the project
-
-I created this project for learning purposes.
-
-## Future
-
-* This tool is pretty slow right now. This can be changed by working directly on the color structures provided by image-rs.
-* Another speed up could be achieved by implementing simd mechanics.
