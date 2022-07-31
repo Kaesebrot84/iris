@@ -2,6 +2,14 @@
 name = "iris"
 version = "0.1.0"
 edition = "2018"
+authors = ["Andrej G. <code.andrej@gmail.com>"]
+license = "MIT"
+description = "A cli tool that creates color palettes from images using the median cut algorithm."
+readme = "README.md"
+homepage = "https://github.com/Kaesebrot84/iris"
+repository = "https://github.com/Kaesebrot84/iris"
+keywords = ["cli", "image", "color", "quantization"]
+categories = ["command-line-utilities"]
 
 [dependencies]
 image = "0.23.14"
