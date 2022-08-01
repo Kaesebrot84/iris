@@ -1,14 +1,17 @@
+# Iris
+
 [![Rust](https://github.com/Kaesebrot84/iris/actions/workflows/Build.yml/badge.svg)](https://github.com/Kaesebrot84/iris/actions/workflows/Build.yml)
 
-## Iris
-
-A command line tool that creates color palettes from images using the [median cut algorithm](https://en.wikipedia.org/wiki/Median_cut).
+A command line tool that creates color palettes from images using the [median
+cut algorithm](https://en.wikipedia.org/wiki/Median_cut).
 
 ## Usage
 
 ```sh
+$ cliris --help
 cliris 0.1.0
-A command line tool that creates color palettes from images using the median cut algorithm.
+Andrej G. <REDACTED@gmail.com>
+A cli tool that creates color palettes from images using the median cut algorithm.
 
 USAGE:
     cliris [OPTIONS] --file-name <FILE_NAME> [OUTPUT_FORMAT]
@@ -23,7 +26,6 @@ OPTIONS:
     -i, --iterations <ITERATIONS>        Number of iterations [default: 1]
     -o, --out-filename <OUT_FILENAME>    File path the file should be written to [default: palette]
     -V, --version                        Print version information
-
 ```
 
 ### Installation
@@ -32,11 +34,10 @@ OPTIONS:
 cargo install cliris
 ```
 
-
 ### Example
 
 ```sh
-cliris -f Lenna.png -i 3 html
+$ cliris -f Lenna.png -i 3 html
 
 Image: (512, 512) - Rgb8
 Finished reading 262144 pixel values in 71 ms.
@@ -51,10 +52,8 @@ Finished generating palette in 1550 ms.
 { R: 175, G: 67, B: 77, A: 255 }
 { R: 114, G: 46, B: 87, A: 255 }
 { R: 98, G: 23, B: 61, A: 255 }
-
 ```
 
 <p align="center">
     <img src="example_output.png" alt="example_output_image" width="400">
 </p>
-
