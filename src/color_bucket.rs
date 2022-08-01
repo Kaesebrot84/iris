@@ -33,7 +33,7 @@ impl ColorBucket {
         }
     }
 
-    /// Recursivly performs the median cut algorithm on self if iteration has not reached 0 yet.
+    /// Recursively performs the median cut algorithm on self if iteration has not reached 0 yet.
     /// Creates two new buckets based on own colors. One bucket with values above and one bucket with value below the median, then performs the algorithm on them again.
     ///
     /// If iteration has reached 0 the color mean for self is pushed to the result vector.
