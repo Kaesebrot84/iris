@@ -37,21 +37,21 @@ cargo install cliris
 ### Example
 
 ```sh
-$ cliris -f Lenna.png -i 3 html
+$ cliris -f peppers.png -i 3 html
 
 Image: (512, 512) - Rgb8
-Finished reading 262144 pixel values in 71 ms.
+Finished reading 262144 pixel values in 2 ms.
 Generating palette...
-Finished generating palette in 1550 ms.
+Finished generating palette in 75 ms.
 
-{ R: 230, G: 191, B: 167, A: 255 }
-{ R: 205, G: 137, B: 137, A: 255 }
-{ R: 227, G: 127, B: 108, A: 255 }
-{ R: 201, G: 115, B: 110, A: 255 }
-{ R: 190, G: 86, B: 95, A: 255 }
-{ R: 175, G: 67, B: 77, A: 255 }
-{ R: 114, G: 46, B: 87, A: 255 }
-{ R: 98, G: 23, B: 61, A: 255 }
+{ R: 191, G: 207, B: 141, A: 255 }
+{ R: 139, G: 187, B: 108, A: 255 }
+{ R: 171, G: 185, B: 76, A: 255 }
+{ R: 118, G: 159, B: 71, A: 255 }
+{ R: 197, G: 60, B: 50, A: 255 }
+{ R: 186, G: 41, B: 34, A: 255 }
+{ R: 117, G: 77, B: 45, A: 255 }
+{ R: 78, G: 7, B: 6, A: 255 }
 ```
 
 <p align="center">
