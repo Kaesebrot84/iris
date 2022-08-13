@@ -53,32 +53,32 @@ fn main() {
         }
         a => a,
     };
-        let now = Instant::now();
-        
-        println!("Generating palette...");
 
-        if let Some(mut color_bucket) = ColorBucket::from_image(&args.file_name) {
-            let palette = color_bucket.make_palette(num_iterations);
-            println!("Finished generating palette in {} ms.\n", now.elapsed().as_millis());
+    let now = Instant::now();
+    println!("Generating palette...");
 
-            for color in &palette {
-                println!("{}", color);
-            }
+    if let Some(mut color_bucket) = ColorBucket::from_image(&args.file_name) {
+        let palette = color_bucket.make_palette(num_iterations);
+        println!("Finished generating palette in {} ms.\n", now.elapsed().as_millis());
 
-            match args.output_format {
-                OutputFormat::Html => match write_html_out(&args.file_name, &palette, &args.out_filename) {
-                    Ok(_) => (),
-                    Err(err) => println!("Failed writing html output file:\n{}", err),
-                },
-                OutputFormat::Json => match write_json_out(&palette, &args.out_filename) {
-                    Ok(_) => (),
-                    Err(err) => println!("Failed writing json output file:\n{}", err),
-                },
-                OutputFormat::Csv => match write_csv_out(&palette, &args.out_filename) {
-                    Ok(_) => (),
-                    Err(err) => println!("Failed writing csv output file:\n{}", err),
-                },
-                OutputFormat::None => (),
-            }
-        } 
+        for color in &palette {
+            println!("{}", color);
+        }
+
+        match args.output_format {
+            OutputFormat::Html => match write_html_out(&args.file_name, &palette, &args.out_filename) {
+                Ok(_) => (),
+                Err(err) => println!("Failed writing html output file:\n{}", err),
+            },
+            OutputFormat::Json => match write_json_out(&palette, &args.out_filename) {
+                Ok(_) => (),
+                Err(err) => println!("Failed writing json output file:\n{}", err),
+            },
+            OutputFormat::Csv => match write_csv_out(&palette, &args.out_filename) {
+                Ok(_) => (),
+                Err(err) => println!("Failed writing csv output file:\n{}", err),
+            },
+            OutputFormat::None => (),
+        }
+    }
 }

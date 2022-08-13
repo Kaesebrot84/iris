@@ -6,7 +6,6 @@ use iris_lib::color::Color;
 /// Writes a html file containing the target image and the according colors.
 ///
 /// TODO: Refactor
-/// - Refactor the output html to be more elegant and responsive
 /// - If output file is not in the same folder as image, image is not displayed. Write entire image path intp html instead.
 ///
 /// # Arguments
