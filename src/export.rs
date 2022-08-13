@@ -1,7 +1,7 @@
 use std::fs::File;
 use std::io::Write;
 
-use crate::color::*;
+use iris_lib::color::Color;
 
 /// Writes a html file containing the target image and the according colors.
 ///
