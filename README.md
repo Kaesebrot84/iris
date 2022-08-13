@@ -39,8 +39,6 @@ cargo install cliris
 ```sh
 $ cliris -f peppers.png -i 3 html
 
-Image: (512, 512) - Rgb8
-Finished reading 262144 pixel values in 2 ms.
 Generating palette...
 Finished generating palette in 75 ms.
 
@@ -57,3 +55,7 @@ Finished generating palette in 75 ms.
 <p align="center">
     <img src="example_output.png" alt="example_output_image" width="400">
 </p>
+
+### Library
+
+This project uses the [iris-lib](https://crates.io/crates/iris-lib) crate, which performs this algorithm as a stand-alone library.
