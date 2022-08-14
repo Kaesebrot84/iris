@@ -10,7 +10,7 @@ cut algorithm](https://en.wikipedia.org/wiki/Median_cut).
 
 ```sh
 $ cliris --help
-cliris 0.1.0
+cliris 0.2.0
 Andrej G. <REDACTED@gmail.com>
 A cli tool that creates color palettes from images using the median cut algorithm.
 
