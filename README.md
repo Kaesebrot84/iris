@@ -1,6 +1,7 @@
 # Iris
 
 [![Rust](https://github.com/Kaesebrot84/iris/actions/workflows/Build.yml/badge.svg)](https://github.com/Kaesebrot84/iris/actions/workflows/Build.yml)
+[![crates.io](https://img.shields.io/crates/v/iris-lib.svg)](https://crates.io/crates/cliris)
 
 A command line tool that creates color palettes from images using the [median
 cut algorithm](https://en.wikipedia.org/wiki/Median_cut).
