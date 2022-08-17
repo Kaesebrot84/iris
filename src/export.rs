@@ -22,31 +22,32 @@ use iris_lib::color::Color;
 /// ```
 ///
 pub fn write_html_out(image_file_path: &str, color_data: &[Color], out_file_path: &str) -> std::io::Result<()> {
-    let mut file = File::create(format!("{}.html", out_file_path))?;
-    file.write_all(b"<!DOCTYPE html><head>")?;
-    file.write_all(b"<meta content=\"width=device-width, initial-scale=1\" http-equiv=\"Content-Type\">")?;
-    file.write_all(b"<meta content=\"utf-8\" http-equiv=\"encoding\">")?;
-    file.write_all(b"<style> img {display: block; margin-left: auto; margin-right: auto; }</style>")?;
-    file.write_all(b"</head>")?;
-    file.write_all(b"<html><body>")?;
+    let mut html: String = String::new();
+
+    html.push_str("<!DOCTYPE html><head>");
+    html.push_str("<meta content=\"width=device-width, initial-scale=1\" http-equiv=\"Content-Type\">");
+    html.push_str("<meta content=\"utf-8\" http-equiv=\"encoding\">");
+    html.push_str("<style> img {display: block; margin-left: auto; margin-right: auto; }</style>");
+    html.push_str("</head>");
+    html.push_str("<html><body>");
     let image_element = format!("<img src=\"{}\" alt=\"Input image\" class=\"centered\">", image_file_path);
-    file.write_all(image_element.as_bytes())?;
-
-    file.write_all(b"</b>")?;
-
-    file.write_all(b"<div style=\"display: grid;align-items: center;justify-content: center;gap: 5px;width: 100%;padding-top: 10px;grid-auto-flow: column;\">")?;
+    html.push_str(image_element.as_str());
+    html.push_str("</b>");
+    html.push_str("<div style=\"display: grid;align-items: center;justify-content: center;gap: 5px;width: 100%;padding-top: 10px;grid-auto-flow: column;\">");
 
     for c in color_data {
         let color_element = format!(
             "<div style=\"background-color:rgb({},{},{});display: flex;justify-content: center;align-items: center;height: 100px;width: 100px;\"></div>",
             c.r, c.g, c.b
         );
-        file.write_all(color_element.as_bytes())?;
+        html.push_str(color_element.as_str());
     }
 
-    file.write_all(b"</div>")?;
+    html.push_str("</div>");
+    html.push_str("</body></html>");
 
-    file.write_all(b"</body></html>")?;
+    let mut file = File::create(format!("{}.html", out_file_path))?;
+    file.write_all(html.as_bytes())?;
     Ok(())
 }
 
@@ -55,7 +56,7 @@ pub fn write_html_out(image_file_path: &str, color_data: &[Color], out_file_path
 /// # Arguments
 ///
 /// * `color_data` - Colors to be written as a palette to json.
-/// * `out_file_path` - Path the output file should be written to.
+/// * `out_file_path` - Path the html file should be written to.
 ///
 /// # Examples
 ///
@@ -65,20 +66,23 @@ pub fn write_html_out(image_file_path: &str, color_data: &[Color], out_file_path
 /// ```
 ///
 pub fn write_json_out(color_data: &[Color], out_file_path: &str) -> std::io::Result<()> {
-    let mut file = File::create(format!("{}.json", out_file_path))?;
-    file.write_all(b"{")?;
-    file.write_all(b"\"palette\": [")?;
+    let mut json: String = String::new();
+    json.push('{');
+    json.push_str("\"palette\": [");
 
     let mut color_it = color_data.iter().peekable();
 
     while let Some(color) = color_it.next() {
-        file.write_all(format!("{{ \"r\": {}, \"g\": {}, \"b\": {}, \"a\": {} }}", color.r, color.g, color.b, color.a).as_bytes())?;
+        json.push_str(format!("{{ \"r\": {}, \"g\": {}, \"b\": {}, \"a\": {} }}", color.r, color.g, color.b, color.a).as_str());
         if color_it.peek().is_some() {
-            file.write_all(b",")?;
+            json.push(',');
         }
     }
+    json.push_str("]}");
 
-    file.write_all(b"]}")?;
+    let mut file = File::create(format!("{}.json", out_file_path))?;
+    file.write_all(json.as_bytes())?;
+
     Ok(())
 }
 
@@ -98,12 +102,15 @@ pub fn write_json_out(color_data: &[Color], out_file_path: &str) -> std::io::Res
 /// ```
 ///
 pub fn write_csv_out(color_data: &[Color], out_file_path: &str) -> std::io::Result<()> {
-    let mut file = File::create(format!("{}.csv", out_file_path))?;
-    file.write_all(b"R, G, B, A\n")?;
+    let mut csv: String = String::new();
+
+    csv.push_str("R, G, B, A\n");
 
     for color in color_data {
-        file.write_all(format!("{}, {}, {}, {}\n", color.r, color.g, color.b, color.a).as_bytes())?;
+        csv.push_str(format!("{}, {}, {}, {}\n", color.r, color.g, color.b, color.a).as_str());
     }
 
+    let mut file = File::create(format!("{}.csv", out_file_path))?;
+    file.write_all(csv.as_bytes())?;
     Ok(())
 }
