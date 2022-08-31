@@ -2,6 +2,7 @@
 *.jpg
 *.png
 *.jpeg
+*.html
 !example_output.png
 
 # Output
