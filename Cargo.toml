@@ -2,7 +2,7 @@
 name = "cliris"
 version = "0.2.0"
 edition = "2018"
-authors = ["Andrej G. <code.andrej@gmail.com>"]
+authors = ["Andrej G."]
 license = "MIT"
 description = "A cli tool that creates color palettes from images using the median cut algorithm."
 readme = "README.md"
